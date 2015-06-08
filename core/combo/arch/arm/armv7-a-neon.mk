@@ -19,7 +19,8 @@ else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a7)
 	arch_variant_cflags := -mcpu=cortex-a7
 else
-	arch_variant_cflags := -march=armv7-a
+	arch_variant_cflags := -march=armv7-a  -mfpu=neon-vfpv4
+        arch_variant_cflags += -D__ARM_FEATURE_LPAE=1 -D__ARM_FEATURE_VFP4=1
 endif
 endif
 endif
