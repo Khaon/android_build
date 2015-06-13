@@ -676,8 +676,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   if block_based:
     script.Print("Flashing SuperSU...")
-    common.ZipWriteStr(output_zip, "supersu/supersu.zip",
-                   ""+input_zip.read("system/addon.d/UPDATE-SuperSU.zip"))
+    common.ZipWriteStr(output_zip, "supersu/supersu.zip",""+input_zip.read("system/addon.d/UPDATE-SuperSU.zip"))
     script.Mount("/system")
     script.FlashSuperSU()
 
