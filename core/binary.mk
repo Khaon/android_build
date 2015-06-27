@@ -261,16 +261,20 @@ ifeq ($(filter $(LOCAL_DISABLE_KRAIT), $(LOCAL_MODULE)),)
 ifdef LOCAL_CONLYFLAGS
 LOCAL_CONLYFLAGS += \
 	$(KRAIT_FLAGS)
+        arch_variant_cflags += -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4
 else
 LOCAL_CONLYFLAGS += \
 	$(KRAIT_FLAGS)
+        arch_variant_cflags += -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4
 endif
 ifdef LOCAL_CPPFLAGS
 LOCAL_CPPFLAGS += \
 	$(KRAIT_FLAGS)
+        arch_variant_cflags += -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4
 else
 LOCAL_CPPFLAGS += \
 	$(KRAIT_FLAGS)
+        arch_variant_cflags += -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4
 endif
 
 endif
