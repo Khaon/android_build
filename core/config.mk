@@ -225,6 +225,9 @@ define select-android-config-h
 build/core/combo/include/arch/$(1)/AndroidConfig.h
 endef
 
+# Load optipop's extra's build engine
+include $(BUILD_SYSTEM)/optipop.mk
+
 combo_target := HOST_
 combo_2nd_arch_prefix :=
 include $(BUILD_SYSTEM)/combo/select.mk
