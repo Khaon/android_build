@@ -680,9 +680,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
       script.Unmount("/system")
 
   script.Print("Flashing SuperSU...")
-  if block_based:
-    script.Mount("/system")
-    script.FlashSuperSU()
+  script.FlashSuperSU()
 
   if block_based:
     script.Unmount("/system")
