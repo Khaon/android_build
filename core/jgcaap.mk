@@ -1,14 +1,14 @@
 #Most of the ideas are from Archi I just used his organization to be easier to try out new flags as also his on. All this flag optimization come from his idea. where you can find more at: https://github.com/ArchiDroid/android_build/commit/a062cc61184950df02c39a038c5bfaef5a8b268c
 # General optimization level of target ARM compiled with GCC. Default: -O2
-NEW_GCC_CFLAGS_ARM := -O2 -march=armv7-a -mfpu=neon-vfpv4
+NEW_GCC_CFLAGS_ARM := -O2
 
 # General optimization level of target THUMB compiled with GCC. Default: -Os
-NEW_GCC_CFLAGS_THUMB := -O2 -DNDEBUG -march=armv7-a
+NEW_GCC_CFLAGS_THUMB := -O2 -DNDEBUG
 
 # Additional flags passed to all C targets compiled with GCC
 NEW_GCC_CFLAGS := $(ALIGNED) -DNDEBUG
 
-ALIGNED = -O2 -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -march=armv7-a
+ALIGNED = -O2 -Wno-invalid-command-line-argument -Wno-unused-command-line-argument
 #-floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange -floop-strip-mine -floop-block -fgcse-las -ftree-slp-vectorize -ffunction-sections  -funwind-tables -fstack-protector -ftree-vectorize -fpredictive-commoning -fgcse-las -fgcse-lm -fgcse-sm -fsched-spec-load -Wno-invalid-command-line-argument -Wno-unused-command-line-argument
 
 # Flags passed to all C targets compiled with GCC
