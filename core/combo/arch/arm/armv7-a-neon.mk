@@ -10,6 +10,10 @@ ifneq (,$(filter cortex-a15 denver ,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT
 	arch_variant_cflags := -mcpu=cortex-a15 -mfpu=neon-vfpv4
         arch_variant_cflags += -D__ARM_FEATURE_LPAE=1 -D__ARM_FEATURE_VFP4=1
 else
+ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),krait)
+	arch_variant_cflags := -march=armv7-a  -mfpu=neon-vfpv4
+        arch_variant_cflags += -D__ARM_FEATURE_LPAE=1 -D__ARM_FEATURE_VFP4=1
+else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a9)
 	arch_variant_cflags := -mcpu=cortex-a9
 else
@@ -19,16 +23,15 @@ else
 ifeq ($(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)),cortex-a7)
 	arch_variant_cflags := -mcpu=cortex-a7
 else
-	arch_variant_cflags := -march=armv7-a  -mfpu=neon-vfpv4
-        arch_variant_cflags += -D__ARM_FEATURE_LPAE=1 -D__ARM_FEATURE_VFP4=1
+	arch_variant_cflags := -march=armv7-a
+endif
 endif
 endif
 endif
 endif
 
 arch_variant_cflags += \
-    -mfloat-abi=softfp \
-    -mfpu=neon
+    -mfloat-abi=softfp
 
 arch_variant_ldflags := \
 	-Wl,--fix-cortex-a8
